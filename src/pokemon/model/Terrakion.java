@@ -1,8 +1,23 @@
 package pokemon.model;
 
 public class Terrakion extends Pokemon implements Fighting, Rock{
+	public Terrakion () {
+		super(1, "Terrakion");
+		setup();
+	}
+	public Terrakion (String name) {
+		super(1, name);
+		setup();
+	}
 	public Terrakion (int number, String name) {
 		super(number, name);
+		setup();
+	}
+	protected void setup() {
+		this.setAttackPoints(1);
+		this.setCanEvolve(false);
+		this.setEnhancemetModifier(.1);
+		this.setHealthPoints(100);
 	}
 	public String roundhouseKick(int damage) {
 		return "You died";
