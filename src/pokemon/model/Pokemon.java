@@ -1,5 +1,7 @@
 package pokemon.model;
 
+import java.util.*;
+
 public abstract class Pokemon {
 	private int healthPoints;
 	private int attackPoints;
@@ -13,15 +15,24 @@ public abstract class Pokemon {
 		this.number = number;
 		
 	}
-	public final String [ ] getPokemonTypes() {
-		Class <?> [] types= getClass().getInterfaces();
-		String [] pokeTypes = new String[types.length];
-		for (int i = 0; i < types.length; i++) {
-			String currentInterface = types[i].getCanonicalName();
-			currentInterface = currentInterface.replace(
-					this.getClass().getPackage().getName() + ".", "");
+	public String[] getPokemonTypes() {
+		String[] types = null;
+		Class<?> currentClass= this.getClass();
+		ArrayList<String> parentType = new ArrayList<String>();
+		while(currentClass.getSuperclass() != null) {
+			Class<?> [] pokemonTypes = getClass().getInterfaces();
+			types = new String[pokemonTypes.length];
+			for (int i = 0; i < types.length; i++) {
+				String currentInterface = pokemonTypes[i].getCanonicalName();
+				currentInterface = currentInterface.replaceAll(this.getClass().getPackage().getName() + ".", "");
+				parentType.add(currentInterface);
+			}
 		}
-		return pokeTypes;
+		types = new String [parentType.size()];
+		for (int i = 0; i < parentType.size(); i++) {
+			types[i] = parentType.get(i);
+		}
+		return types;
 	}
 	public String toString() {
 		String description = "Hi, I am a " + name + ", and my HP is " + healthPoints;
