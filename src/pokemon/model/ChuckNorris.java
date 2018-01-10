@@ -14,16 +14,16 @@ public class ChuckNorris extends Pokemon implements Fighting{
 		setup();
 	}
 	protected void setup() {
-		this.setAttackPoints(1);
+		this.setAttackPoints(Integer.MAX_VALUE);
 		this.setCanEvolve(false);
-		this.setEnhancemetModifier(.1);
-		this.setHealthPoints(100);
+		this.setEnhancemetModifier(Double.MAX_VALUE);
+		this.setHealthPoints(Integer.MAX_VALUE);
 	}
 	public String roundhouseKick(int damage) {
 		return "You died";
 	}
 	public String rapidFire(int damage) {
-		return "Rarr";
+		return "Pew Pew Pew Pew Pew Pew Pew Pew Pew Pew Pew Pew";
 	}
 	public boolean intimidate(int damage) {
 		return true;
