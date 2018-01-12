@@ -1,7 +1,9 @@
 package pokemon.model;
 
 import java.util.*;
-
+/*
+ * Pokemon Object
+ */
 public abstract class Pokemon {
 	private int healthPoints;
 	private int attackPoints;
@@ -20,7 +22,7 @@ public abstract class Pokemon {
 		Class<?> currentClass= this.getClass();
 		ArrayList<String> parentType = new ArrayList<String>();
 		while(currentClass.getSuperclass() != null) {
-			Class<?> [] pokemonTypes = getClass().getInterfaces();
+			Class<?> [] pokemonTypes = currentClass.getInterfaces();
 			types = new String[pokemonTypes.length];
 			for (int i = 0; i < types.length; i++) {
 				String currentInterface = pokemonTypes[i].getCanonicalName();
