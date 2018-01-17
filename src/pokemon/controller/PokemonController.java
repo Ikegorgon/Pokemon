@@ -27,10 +27,10 @@ public class PokemonController {
 		return pokedex;
 	}
 	public boolean isValidInteger(String input) {
-		return false;
+		return true;
 	}
 	public boolean isValidDouble(String input) {
-		return false;
+		return true;
 	}
 	public String [] convertPokedex() {
 		String [] names = new String [pokedex.size()];
@@ -47,5 +47,6 @@ public class PokemonController {
 		selected.setEnhancemetModifier(modify);
 		selected.setHealthPoints(health);
 		selected.setName(name);
+		FileController.savePokemonToFile((ArrayList<Pokemon>) pokedex);
 	}
 }
