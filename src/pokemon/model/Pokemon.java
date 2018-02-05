@@ -28,6 +28,7 @@ public abstract class Pokemon {
 				String currentInterface = pokemonTypes[i].getCanonicalName();
 				currentInterface = currentInterface.replaceAll(this.getClass().getPackage().getName() + ".", "");
 				parentType.add(currentInterface);
+				System.out.println(parentType.size());
 			}
 		}
 		types = new String [parentType.size()];
